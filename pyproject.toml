@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "omnia-radar"
+version = "0.0.1"
+description = "OMNIA-RADAR: structural opportunity detector (SEI-high / IRI-low growth zones)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+  { name = "Massimiliano Brighindi" }
+]
+keywords = ["OMNIA", "MB-X.01", "SEI", "IRI", "structural-measurement", "opportunity-detection"]
+
+[project.urls]
+Repository = "https://github.com/Tuttotorna/OMNIA-RADAR"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
