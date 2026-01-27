@@ -1,0 +1,5 @@
+{"year": -10000, "energy_pc": 0.05, "info_density": 0.01, "war_rate": 0.20, "innovation_rate": 0.05, "institutional_entropy": 0.05}
+{"year": -3000,  "energy_pc": 0.10, "info_density": 0.10, "war_rate": 0.40, "innovation_rate": 0.10, "institutional_entropy": 0.15}
+{"year": 1800,   "energy_pc": 0.30, "info_density": 0.45, "war_rate": 0.50, "innovation_rate": 0.35, "institutional_entropy": 0.45}
+{"year": 1945,   "energy_pc": 0.60, "info_density": 0.65, "war_rate": 0.95, "innovation_rate": 0.65, "institutional_entropy": 0.65}
+{"year": 2025,   "energy_pc": 0.85, "info_density": 0.95, "war_rate": 0.65, "innovation_rate": 0.90, "institutional_entropy": 0.85}
