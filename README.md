@@ -1,118 +1,141 @@
-# OMNIA-RADAR (MB-X.01)
-
-OMNIA-RADAR: structural opportunity detector  
-(SEI-high / IRI-low growth zones)
+# OMNIA-RADAR
+Structural opportunity detector (SEI-high / IRI-low growth zones)
 
 This repository is part of the **MB-X.01 / OMNIA** ecosystem.
 
-Canonical architecture and full map:  
-https://github.com/Tuttotorna/lon-mirror/blob/main/ECOSYSTEM.md
-
----
-
 **Author:** Massimiliano Brighindi  
-**Signature:** MB-X.01 / Omniabase±  
-**Contact:** brighissimo@gmail.com  
+**Signature:** MB-X.01 / Omniabase±
 
 ---
 
 ## Overview
 
-**OMNIA-RADAR** is a structural opportunity detector.
+**OMNIA-RADAR** is a **post-hoc structural opportunity detector**.
 
-It uses OMNIA measurements to identify domains where:
+It uses OMNIA measurements to identify zones where:
 
-- **SEI is high** → structure is still extractable  
-- **IRI is low** → no irreversible collapse has occurred  
-- **Drift is controlled** → growth regime, not fragmentation  
+- **SEI is high** → structure still extractable (not saturated)
+- **IRI is low** → no irreversible collapse (no lock-in)
+- **drift is controlled** → growth regime, not fragmentation
 
-RADAR does not optimize or decide.
+RADAR does **not** optimize, decide, or recommend actions.
 
-It measures where growth is still possible beyond **OMNIA-LIMIT**.
+It measures **where growth is still structurally possible beyond OMNIA-LIMIT**.
 
 ---
 
 ## Core Idea
 
-OMNIA-LIMIT marks saturation.
+**OMNIA-LIMIT** marks saturation.
 
-OMNIA-RADAR maps the remaining space:
+RADAR maps the remaining feasible space:
 
-- **LIMIT → excluded**  
+- **LIMIT → excluded**
 - **Residual → opportunity**
 
-Growth exists only outside the structural boundary.
+RADAR is a *gate* that outputs non-zero only if the system is not saturated and not collapsed.
 
 ---
 
-## Structural Outputs
+## Inputs
 
-Given candidate trajectories or domains, RADAR measures:
+RADAR expects, per candidate trajectory/domain, the minimal OMNIA signals:
 
-- **Ω** coherence  
-- **SEI** saturation gradient  
-- **IRI** irreversibility risk  
-- **OpportunityScore** ranking (RADAR)
+- **Ω / Ω̂** (coherence / Omega-set residue)
+- **SEI** (saturation / extractability gradient)
+- **IRI** (irreversibility risk)
+- **drift** (controlled vs unstable drift; definition below)
 
-Highest score = maximum remaining growth zone.
-
----
-
-## Repository Contents
-
-- `radar_scan.py`  
-  Opportunity scanner computing Ω / SEI / IRI means across candidates
-
-- `candidates/`  
-  Folder containing domain trajectories in JSONL format
-
-- Example candidate:  
-  `candidates/human_trajectory.jsonl`
+These can be imported from an OMNIA run, or assembled from a compatible report.
 
 ---
 
-## Run
+## Output
 
-Place candidate domains in:
+For each candidate:
 
-- `candidates/*.jsonl`
+- `omega_coherence`
+- `sei`
+- `iri`
+- `drift_gate`
+- `radar_score`
+- `flags` (e.g., `SATURATED`, `IRREVERSIBLE`, `DRIFT_UNSTABLE`)
+- optional breakdown for debugging
 
-Then execute:
+---
 
-```bash
-python radar_scan.py
+## Formal Definition (minimal)
 
-Output:
+### 1) Drift gate
 
-Ω mean coherence
+`drift_gate ∈ [0, 1]` is a penalty that collapses opportunity when drift is unstable.
 
-SEI mean saturation gradient
+Recommended minimal form:
 
-IRI mean irreversibility risk
+- define `drift ∈ [0, 1]` where `0 = stable`, `1 = unstable`
+- then:
 
-OpportunityScore ranking
+`drift_gate = 1 - drift`
 
+Hard collapse variant:
+
+- if `drift > drift_max` ⇒ `drift_gate = 0`
+
+### 2) Opportunity score
+
+Minimal multiplicative form (default):
+
+`radar_score = clip01( SEI * (1 - IRI) * drift_gate * omega_coherence )`
+
+Where:
+- `SEI ∈ [0, 1]`
+- `IRI ∈ [0, 1]`
+- `omega_coherence ∈ [0, 1]`
+
+**Collapsing rule (non-negotiable):**
+- if `SEI = 0` ⇒ `radar_score = 0`
+- if `IRI = 1` ⇒ `radar_score = 0`
+- if `drift_gate = 0` ⇒ `radar_score = 0`
+
+---
+
+## Planned Structure (recommended)
+
+omnia_radar/ init.py radar.py            # compute score, flags types.py            # dataclasses / typed dicts drift.py            # drift_gate implementations examples/ radar_demo.py       # synthetic trajectories demo tests/ test_radar_collapse.py
+
+---
+
+## Minimal Integration Contract (suggested)
+
+### Input (Python)
+
+```python
+from dataclasses import dataclass
+from typing import Optional, Dict, Any, List
+
+@dataclass(frozen=True)
+class RadarInput:
+    omega_coherence: float     # [0,1]
+    sei: float                # [0,1]
+    iri: float                # [0,1]
+    drift: float              # [0,1] (0 stable, 1 unstable)
+    meta: Optional[Dict[str, Any]] = None
+
+Output (Python)
+
+@dataclass(frozen=True)
+class RadarOutput:
+    radar_score: float         # [0,1]
+    drift_gate: float          # [0,1]
+    flags: List[str]
+    breakdown: Dict[str, float]
 
 
 ---
 
-Notes
+License / Usage
 
-OMNIA-RADAR is measurement only.
+RADAR is intended as a measurement layer only.
 
-It does not predict outcomes, enforce policy, or interpret meaning.
+Any decision layer must remain external and must not be embedded into RADAR.
 
-It is a structural sensor locating where:
-
-saturation is not reached
-
-irreversibility is minimal
-
-opportunity remains measurable
-
-
-
----
-
-MB-X.01 / OMNIA
-Massimiliano Brighindi
