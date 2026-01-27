@@ -1,6 +1,8 @@
 # OMNIA-RADAR  
 Structural opportunity detector (SEI-high / IRI-low growth zones)
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18390735.svg)](https://doi.org/10.5281/zenodo.18390735)
+
 This repository is part of the **MB-X.01 / OMNIA** ecosystem.
 
 **Author:** Massimiliano Brighindi  
