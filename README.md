@@ -4,7 +4,9 @@ Structural opportunity detector (SEI-high / IRI-low growth zones)
 This repository is part of the **MB-X.01 / OMNIA** ecosystem.
 
 **Author:** Massimiliano Brighindi  
-**Signature:** MB-X.01 / Omniabase±
+**Signature:** MB-X.01 / Omniabase±  
+
+OMNIA-RADAR is architecture-agnostic and strictly non-decisional: measurement only.
 
 ---
 
@@ -12,7 +14,7 @@ This repository is part of the **MB-X.01 / OMNIA** ecosystem.
 
 **OMNIA-RADAR** is a **post-hoc structural opportunity detector**.
 
-It uses OMNIA measurements to identify regions where:
+It uses OMNIA measurements to identify zones where:
 
 - **SEI is high** → structure is still extractable (not saturated)
 - **IRI is low** → no irreversible collapse (no lock-in)
@@ -33,8 +35,8 @@ RADAR maps the remaining feasible space:
 - **LIMIT → excluded**
 - **Residual → opportunity**
 
-RADAR is a strict *gate*:  
-it outputs non-zero only if the system is neither saturated nor structurally collapsed.
+RADAR is a strict structural *gate*:  
+it outputs non-zero only if the system is neither saturated nor collapsed.
 
 ---
 
@@ -42,7 +44,7 @@ it outputs non-zero only if the system is neither saturated nor structurally col
 
 OMNIA measures invariance and instability.  
 OMNIA-LIMIT marks saturation (STOP).  
-OMNIA-RADAR maps the remaining residual space where opportunity is still measurable.
+OMNIA-RADAR maps the residual space where opportunity is still measurable.
 
 **OMNIA → OMNIA-LIMIT → OMNIA-RADAR**
 
@@ -121,6 +123,18 @@ RADAR must collapse to zero under any boundary condition:
 - if `drift_gate = 0` ⇒ `radar_score = 0`
 
 This is a measurement gate, not a soft heuristic.
+
+---
+
+## Minimal Example
+
+A minimal executable scoring example is provided:
+
+examples/radar_minimal.py
+
+Core rule:
+
+RADAR = SEI_norm · (1 − IRI_norm) · drift_gate
 
 ---
 
