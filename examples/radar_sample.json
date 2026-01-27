@@ -1,0 +1,11 @@
+{
+  "candidate_id": "demo_growth_zone_001",
+  "radar_state": "ok",
+  "omega_residual": 0.43,
+  "sei": 0.78,
+  "sei_gradient": 0.12,
+  "iri": 0.09,
+  "iri_risk": 0.09,
+  "drift": 0.21,
+  "radar_score": 0.56
+}
