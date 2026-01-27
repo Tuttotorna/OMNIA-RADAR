@@ -1,3 +1,5 @@
+**Canonical ecosystem map:** https://github.com/Tuttotorna/lon-mirror/blob/main/ECOSYSTEM.md
+
 # OMNIA-RADAR  
 Structural opportunity detector (SEI-high / IRI-low growth zones)
 
