@@ -1,9 +1,3 @@
-Nome file:
-
-docs/RADAR_PURE_STRUCTURE_SCAN_V3B.md
-
-Contenuto completo:
-
 # OMNIA-RADAR · Pure Structure Scan v3B
 
 ## Status
