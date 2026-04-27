@@ -1,4 +1,4 @@
-# OMNIA-RADAR — Structural Opportunity Detector
+# OMNIA-RADAR — Structural Detection Layer
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18390735.svg)](https://doi.org/10.5281/zenodo.18390735)
 
@@ -11,367 +11,400 @@ Canonical ecosystem map:
 
 ---
 
-## Position in the Ecosystem
+## What OMNIA-RADAR Is
 
-This repository is part of the **MB-X.01 / OMNIABASE / OMNIA** ecosystem.
+OMNIA-RADAR is a **structural detection layer**.
+
+It scans sequences, outputs, traces, texts, logs, code, numeric patterns, or symbolic systems and measures:
+
+```text
+detectable structure
+structural intensity
+structural persistence
+structural anomalies
+
+It does not ask what the structure means.
+
+It asks only:
+
+is there measurable structure here?
+how strong is it?
+how does it behave under perturbation?
+
+
+---
+
+What OMNIA-RADAR Is Not
+
+OMNIA-RADAR is not:
+
+a truth detector
+
+a meaning detector
+
+a coherence validator
+
+a quality evaluator
+
+a reasoning system
+
+a decision engine
+
+an optimization layer
+
+a policy layer
+
+
+It does not decide.
+
+It does not recommend.
+
+It does not replace OMNIA.
+
+It does not replace OMNIA-LIMIT.
+
+
+---
+
+Position in the Ecosystem
+
+This repository is part of the MB-X.01 / OMNIABASE / OMNIA ecosystem.
 
 Within that ecosystem:
 
-- **[OMNIABASE](https://github.com/Tuttotorna/OMNIABASE)** = the general multirepresentational framework
-- **[OMNIA](https://github.com/Tuttotorna/OMNIA)** = the Diagnostics / Structural Measurement branch
-- **[lon-mirror](https://github.com/Tuttotorna/lon-mirror)** = the deep operational and historical core of the diagnostics lineage
-- **[omnia-limit](https://github.com/Tuttotorna/omnia-limit)** = the terminal structural boundary layer
-- **OMNIA-RADAR** = the structural opportunity detector of the diagnostics lineage
+OMNIABASE = multirepresentational structural framework
 
-OMNIA-RADAR is **architecture-agnostic**, **model-agnostic**, and **strictly non-decisional**.
+OMNIA = structural measurement layer
 
-It performs **measurement only**.
+omnia-limit = terminal boundary / stop layer
+
+lon-mirror = ecosystem and diagnostics lineage mirror
+
+OMNIA-RADAR = structural detection / scanning layer
+
+
+Simplified chain:
+
+RADAR → detects structure
+OMNIA → measures structural coherence / fragility
+LIMIT → identifies terminal structural boundary
+
+RADAR is therefore not OMNIA.
+
+RADAR detects the presence, intensity, and persistence of structure.
+
+OMNIA measures structural coherence under transformation.
+
+LIMIT identifies where continuation no longer produces admissible structure.
+
 
 ---
 
-## Overview
+Core Principle
 
-**OMNIA-RADAR** is a **post-hoc structural opportunity detector**.
+structure != meaning
+structure != truth
+structure != coherence
+structure != quality
 
-It uses OMNIA-derived measurements to identify zones where:
+A system can contain structure without human meaning.
 
-- **SEI is high** -> structure is still extractable
-- **IRI is low** -> no irreversible collapse is present
-- **drift is controlled** -> the system is still in a growth regime rather than in fragmentation
+A system can contain strong structure and still be degenerate.
 
-RADAR does **not** optimize, decide, recommend, or predict outcomes.
+A system can contain moderate structure and be more persistent than a maximally regular system.
 
-It measures **where structural opportunity is still admissible inside the remaining non-collapsed space**.
+OMNIA-RADAR exists to measure this distinction.
+
 
 ---
 
-## Architectural Role
+Core Discovery
 
-The OMNIA diagnostics lineage does not only need a measurement core.
+Across the validation path, OMNIA-RADAR repeatedly shows:
 
-It also needs a way to distinguish between:
+maximum structural intensity != maximum structural persistence
 
-- zones that are already structurally exhausted
-- zones that are still structurally open
+More directly:
 
-That is the role of OMNIA-RADAR.
+the strongest structures are often the most fragile under perturbation
+
+This separates two axes:
+
+structural intensity   = how much structure is detectable
+structural persistence = how long structure survives under perturbation
+
+
+---
+
+Structural Map
+
+OMNIA-RADAR maps sequences into a structural field:
+
+X = structure intensity
+Y = structure persistence
+
+Typical regimes:
+
+low intensity  + flat persistence  → noise baseline
+medium intensity + high persistence → distributed / resilient structure
+high intensity + low persistence   → brittle / over-structured regime
+
+This is the central RADAR result.
+
+
+---
+
+Experimental Path
+
+The repository documents a progressive validation path:
+
+v1–v2 → emergence detection
+v3B   → pure structure scan
+v3C   → external real-data scan
+v3D   → natural outlier scan
+v4    → cross-domain structure scan
+v5    → adversarial structure test
+v6    → temporal degradation test
+v7    → structure vs persistence map
+
+Recommended entry path:
+
+1. docs/RADAR_ONE_PAGER.md
+
+
+2. docs/RADAR_ENTRY_POINT.md
+
+
+3. docs/RADAR_CLAIM.md
+
+
+4. docs/RADAR_STRUCTURE_PERSISTENCE_MAP_V7.md
+
+
+
+
+---
+
+Key Documents
+
+Start Here
+
+docs/RADAR_ONE_PAGER.md
+docs/RADAR_ENTRY_POINT.md
+docs/RADAR_CLAIM.md
+
+Core Experimental Results
+
+docs/RADAR_PURE_STRUCTURE_SCAN_V3B.md
+docs/RADAR_EXTERNAL_STRUCTURE_SCAN_V3C.md
+docs/RADAR_NATURAL_OUTLIER_SCAN_V3D.md
+docs/RADAR_CROSS_DOMAIN_SCAN_V4.md
+docs/RADAR_ADVERSARIAL_STRUCTURE_TEST_V5.md
+docs/RADAR_TEMPORAL_DEGRADATION_V6.md
+docs/RADAR_STRUCTURE_PERSISTENCE_MAP_V7.md
+
+Earlier Emergence Tests
+
+docs/EMERGENCE_BEYOND_LIMIT_V1.md
+docs/EMERGENCE_BEYOND_LIMIT_V2.md
+docs/EMERGENCE_BEYOND_LIMIT_V3A.md
+
+
+---
+
+What RADAR Measures
+
+RADAR uses structural indicators such as:
+
+compression ratio
+
+token entropy
+
+character entropy
+
+n-gram entropy
+
+repetition ratio
+
+repeated n-gram excess
+
+autocorrelation
+
+temporal score decay under perturbation
+
+
+These are not semantic metrics.
+
+They are structural signals.
+
+
+---
+
+Static RADAR
+
+Static RADAR measures:
+
+how much structure is present now
+
+Examples:
+
+noise              → low structural intensity
+corrupted text     → weak / damaged structure
+human-like text    → medium distributed structure
+optimized pattern  → very high structural intensity
+
+
+---
+
+Temporal RADAR
+
+Temporal RADAR measures:
+
+how structure behaves under progressive perturbation
+
+The key empirical pattern:
+
+noise      → low score, flat trajectory
+human      → medium score, gradual decay
+optimized  → very high score, rapid decay
+
+This shows:
+
+maximum structure is not maximum robustness
+
+
+---
+
+Boundary with OMNIA-LIMIT
+
+OMNIA-LIMIT asks:
+
+where does admissible continuation stop?
+
+OMNIA-RADAR asks:
+
+is there still measurable structure near, inside, or beyond that boundary?
+
+RADAR does not say whether the structure is useful.
+
+RADAR does not say whether the structure is coherent.
+
+RADAR only detects whether measurable structure remains.
+
+
+---
+
+Minimal Conceptual Formula
+
+RADAR(sequence) = structural intensity × structural persistence
 
 Where:
 
-- **[OMNIA](https://github.com/Tuttotorna/OMNIA)** measures structural behavior
-- **[omnia-limit](https://github.com/Tuttotorna/omnia-limit)** certifies structural non-reducibility
-- **OMNIA-RADAR** detects whether a candidate region still contains structurally admissible opportunity
+structural intensity   = detectable regularity
+structural persistence = survival under perturbation
 
-RADAR is therefore not a replacement for OMNIA or OMNIA-LIMIT.
+This is not a decision score.
 
-It is a downstream structural detector operating on their signal space.
-
----
-
-## Core Idea
-
-**OMNIA-LIMIT** marks structural saturation.
-
-**OMNIA-RADAR** maps the remaining feasible space before terminal collapse or outside clearly excluded regions.
-
-Shortest formula:
-
-- **LIMIT -> excluded**
-- **Residual admissible region -> opportunity**
-
-RADAR acts as a **strict structural gate**.
-
-It outputs a non-zero value **only if the system is neither saturated nor irreversibly collapsed**.
-
-There is no soft narrative scoring.  
-There is no semantic interpretation.  
-There is no optimization loop.
-
-Only structural admissibility.
-
----
-
-## Structural Chain
-
-The diagnostics lineage can be read in simplified form as:
-
-```text
-OMNIA -> OMNIA-LIMIT -> OMNIA-RADAR
-
-Meaning:
-
-OMNIA measures invariance, fragility, drift, and collapse signals
-
-OMNIA-LIMIT declares the structural stop boundary where admissible diagnostics must end
-
-OMNIA-RADAR maps the remaining measurable opportunity space in non-collapsed regions
-
-
-This should not be confused with a decision pipeline.
-
-RADAR measures opportunity.
-It does not decide whether the opportunity should be pursued.
-
-
----
-
-Inputs
-
-RADAR expects, per candidate trajectory or domain, the minimal OMNIA-derived signals:
-
-Ω / Ω̂ — coherence / Omega-set residue
-
-SEI — saturation / extractability index
-
-IRI — irreversibility risk
-
-drift — controlled vs unstable drift
-
-
-Inputs can be imported from an OMNIA run or assembled from a compatible structural report.
-
-All values are assumed normalized in [0,1].
-
-
----
-
-Output
-
-For each candidate, RADAR returns:
-
-radar_score — structural opportunity gate in [0,1]
-
-sei_norm
-
-iri_norm
-
-drift_gate
-
-gate_collapsed — boolean hard collapse indicator
-
-optional metadata such as domain, window, or source
-
-
-RADAR outputs measurements, not actions.
-
-
----
-
-Formal Definition (Minimal)
-
-1) Drift Gate
-
-drift_gate ∈ [0,1] collapses opportunity when drift becomes unstable.
-
-Minimal definition:
-
-define drift ∈ [0,1] where:
-
-0 = fully stable
-
-1 = fully unstable
-
-
-
-Then:
-
-drift_gate = 1 - drift
-
-Hard-collapse variant (optional):
-
-if drift > drift_max -> drift_gate = 0
-
-
-
----
-
-2) Opportunity Score (Standard)
-
-Strict multiplicative gate:
-
-radar_score = clip01( sei_norm * (1 - iri_norm) * drift_gate )
-
-Where:
-
-sei_norm ∈ [0,1]
-
-iri_norm ∈ [0,1]
-
-drift_gate ∈ [0,1]
-
-
-
----
-
-Collapsing Rule (Non-Negotiable)
-
-RADAR must collapse to zero under any boundary condition:
-
-if sei_norm = 0 -> radar_score = 0
-
-if iri_norm = 1 -> radar_score = 0
-
-if drift_gate = 0 -> radar_score = 0
-
-
-This is a measurement gate, not a soft heuristic.
-
-
----
-
-Minimal Executable Example
-
-A deterministic minimal demo is provided:
-
-examples/minimal_radar_demo.py
-
-
-Run:
-
-python examples/minimal_radar_demo.py
-
-The script evaluates synthetic inputs and outputs a JSON structure containing:
-
-radar_score
-
-sei_norm
-
-iri_norm
-
-drift_gate
-
-gate_collapsed
-
-
-This file constitutes the reference executable artifact of the repository.
-
-
----
-
-Minimal Integration Contract
-
-Input (Python)
-
-from dataclasses import dataclass
-from typing import Optional, Dict, Any
-
-@dataclass(frozen=True)
-class RadarInput:
-    sei_norm: float            # [0,1]
-    iri_norm: float            # [0,1]
-    drift_gate: float          # [0,1]
-    meta: Optional[Dict[str, Any]] = None
-
-Output (Python)
-
-from dataclasses import dataclass
-from typing import Dict, Any
-
-@dataclass(frozen=True)
-class RadarOutput:
-    radar_score: float         # [0,1]
-    gate_collapsed: bool
-    breakdown: Dict[str, float]
-    meta: Dict[str, Any]
+It is a structural measurement field.
 
 
 ---
 
 Repository Scope
 
-OMNIA-RADAR is intentionally minimal.
+This repository is intentionally bounded.
 
 It does not:
 
-learn
+train models
 
-predict
+infer meaning
 
-rank alternatives
+optimize behavior
 
-recommend actions
+rank actions
+
+make decisions
+
+validate truth
+
+replace semantic analysis
 
 replace OMNIA
 
 replace OMNIA-LIMIT
 
-act as a policy layer
 
-
-Any decision, optimization, or policy layer must remain external.
-
-RADAR measures structural opportunity only.
+Any decision layer must remain external.
 
 
 ---
 
 Why This Repository Matters
 
-Without a structural opportunity detector, the diagnostics lineage would be able to say only:
+Many systems collapse this distinction:
 
-where collapse is present
+structure = meaning = usefulness = coherence
 
-where saturation is final
+OMNIA-RADAR separates them.
 
-where stop must be declared
+It shows that:
 
+structure can be detected without meaning
 
-But many systems also need to know something narrower:
+and:
 
-where structure is still admissibly open without already being fragmented or irreversibly lost
+structural strength and structural persistence are different properties
 
-That is the narrow value of OMNIA-RADAR.
+This matters because regions that appear meaningless, degraded, noisy, or post-limit may still contain measurable structure.
 
-It is not a growth optimizer.
-It is not a recommender.
-It is a detector of structurally admissible opportunity zones.
+RADAR provides a way to scan those regions without prematurely interpreting them.
 
 
 ---
 
 Relationship to the Broader Ecosystem
 
-At a high level:
+High-level map:
 
-OMNIABASE -> umbrella framework
+OMNIABASE
+  └── multirepresentational structural framework
 
-OMNIA -> Diagnostics / Structural Measurement branch
+OMNIA
+  └── structural measurement / diagnostics
 
-lon-mirror -> deep operational and historical core of the diagnostics lineage
+OMNIA-LIMIT
+  └── terminal boundary / stop condition
 
-omnia-limit -> terminal structural boundary / SNRC issuance
+OMNIA-RADAR
+  └── structural detection and persistence scan
 
-OMNIA-RADAR -> structural opportunity detector
+observer-suspension
+  └── epistemic / observer-decentering pre-layer
 
-observer-suspension -> epistemic pre-layer
+lon-mirror
+  └── ecosystem mirror and historical lineage
 
-omniabase-coordinate-discovery -> Coordinate Discovery branch
-
-omega-translator -> Cross-Representation Translation branch
-
-
-This repository should therefore be read not as an isolated scoring utility, but as one bounded layer inside the Diagnostics branch of OMNIABASE.
+OMNIA-RADAR should be read as one bounded layer inside the diagnostics lineage.
 
 
 ---
 
 Related Repositories
 
-For the shortest functional path through the broader ecosystem:
+OMNIABASE
 
-OMNIABASE — umbrella framework
+OMNIA
 
-OMNIA — Diagnostics / Structural Measurement branch
+omnia-limit
 
-lon-mirror — deep operational and historical core of the diagnostics lineage
+lon-mirror
 
-omnia-limit — terminal structural boundary layer
+observer-suspension
 
-observer-suspension — epistemic pre-layer
+omniabase-coordinate-discovery
 
-omniabase-coordinate-discovery — Coordinate Discovery branch
-
-omega-translator — Cross-Representation Translation branch
+omega-translator
 
 
 
@@ -379,34 +412,20 @@ omega-translator — Cross-Representation Translation branch
 
 Final Statement
 
-OMNIA-RADAR exists to detect where structural opportunity is still admissible.
+OMNIA-RADAR detects structure independently of meaning.
 
-It never decides what should be done with that opportunity.
+It measures:
 
-It measures.
-It does not recommend.
+where structure exists
+how intense it is
+how persistent it is under perturbation
+
+It does not decide what the structure means.
+
+It does not decide whether the structure is true.
+
+It does not decide whether the structure is useful.
 
 That boundary is not a limitation.
-It is the architectural condition that keeps RADAR coherent.
 
-
----
-
-Summary
-
-OMNIA-RADAR is the structural opportunity detector of the OMNIA diagnostics lineage inside the broader OMNIABASE ecosystem.
-
-It identifies zones where:
-
-extractable structure is still present
-
-irreversible collapse has not yet occurred
-
-drift remains controlled enough for admissible continuation
-
-
-It is strictly non-decisional.
-
-Its role is simple:
-
-to detect where structural opportunity is still open without collapsing into optimization, policy, or prediction.
+It is what keeps RADAR coherent.
