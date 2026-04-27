@@ -1,6 +1,6 @@
 # OMNIA-RADAR — Structural Detection Layer
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18390735.svg)](https://doi.org/10.5281/zenodo.18390735)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19829096.svg)](https://doi.org/10.5281/zenodo.19829096)
 
 **Author:** Massimiliano Brighindi  
 **Contact:** brighissimo@gmail.com  
