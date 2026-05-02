@@ -432,17 +432,18 @@ It is what keeps RADAR coherent.
 
 ---
 
----
-
-# Ecosystem Structure
-
 ```text
 LON-MIRROR
 |
 ├── CORE
 |   ├── OMNIA
+|   ├── OMNIA-INVARIANCE
 |   ├── omnia-limit
 |   └── OMNIA-RADAR
+|
+├── RESEARCH
+|   ├── OMNIA-CONSTANT
+|   └── OMNIA-THREE-BODY
 |
 ├── REPRESENTATION
 |   └── OMNIABASE
@@ -451,59 +452,93 @@ LON-MIRROR
     ├── OMNIA-SECURITY
     ├── OMNIA-CRYPTO
     └── OMNIAMIND
-```
 
-## Root
+Root
 
-- [LON-MIRROR](https://github.com/Tuttotorna/lon-mirror)
+LON-MIRROR
+
 
 Canonical ecosystem hub, lineage map, navigation layer, and coordination entry point.
 
+
 ---
 
-## Core
+Core
 
-- [OMNIA](https://github.com/Tuttotorna/OMNIA)
+OMNIA
+
 
 Core structural measurement framework.
 
-- [omnia-limit](https://github.com/Tuttotorna/omnia-limit)
+OMNIA-INVARIANCE
+
+
+Core validation and invariance-testing repository.
+Focuses on structural invariance, perturbation behavior, and controlled evidence around Ω under transformation.
+
+omnia-limit
+
 
 Structural stopping conditions, saturation, irreducibility, and limit behavior.
 
-- [OMNIA-RADAR](https://github.com/Tuttotorna/OMNIA-RADAR)
+OMNIA-RADAR
+
 
 Structural drift surfacing and trajectory visualization layer.
 
+
 ---
 
-## Representation
+Research
 
-- [OMNIABASE](https://github.com/Tuttotorna/OMNIABASE)
+OMNIA-CONSTANT
+
+
+Post-analysis and falsification repository for Ω-region behavior.
+Current focus: whether observed Ω corridors behave as structural transition regimes or collapse as measurement artifacts.
+No universal structural constant is declared.
+
+OMNIA-THREE-BODY
+
+
+Experimental dynamics repository for multi-body structural interaction tests.
+Focuses on instability, trajectory interaction, and non-trivial structural behavior under interacting perturbations.
+
+
+---
+
+Representation
+
+OMNIABASE
+
 
 Multi-base structural representation and invariance exploration layer.
 
+
 ---
 
-## Applications
+Applications
 
-- [OMNIA-SECURITY](https://github.com/Tuttotorna/OMNIA-SECURITY)
+OMNIA-SECURITY
+
 
 Bounded structural diagnostics for security-relevant systems.
 
-- [OMNIA-CRYPTO](https://github.com/Tuttotorna/OMNIA-CRYPTO)
+OMNIA-CRYPTO
+
 
 Bounded structural diagnostics for cryptographic behavior.
 
-- [OMNIAMIND](https://github.com/Tuttotorna/OMNIAMIND)
+OMNIAMIND
+
 
 Bounded structural diagnostics for cognitive and reasoning-related behavior.
 
+
 ---
 
-# Architectural Separation
+Architectural Separation
 
-```text
 LON-MIRROR
 =
 ecosystem hub
@@ -512,18 +547,31 @@ OMNIA
 =
 core structural measurement layer
 
+OMNIA-INVARIANCE
+=
+core invariance validation layer
+
+OMNIA-CONSTANT
+=
+post-analysis / falsification layer for Ω-region behavior
+
+OMNIA-THREE-BODY
+=
+experimental structural dynamics layer
+
 Other repositories
 =
 representation layers,
 limit layers,
 visualization layers,
 or bounded domain verticalizations.
-```
+
 
 ---
 
-# Core Boundary
+Core Boundary
 
-```text
 measurement != inference != decision
-```
+---
+
+
