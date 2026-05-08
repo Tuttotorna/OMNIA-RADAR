@@ -1,22 +1,22 @@
 [build-system]
-requires = ["setuptools>=68", "wheel"]
+requires = ["setuptools>=61"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "omnia-radar"
-version = "0.0.1"
-description = "OMNIA-RADAR: structural opportunity detector (SEI-high / IRI-low growth zones)"
+version = "1.0.0"
+description = "Structural detection, drift surfacing, and signal persistence scan layer for OMNIA."
 readme = "README.md"
-requires-python = ">=3.10"
-license = { text = "MIT" }
+requires-python = ">=3.9"
 authors = [
-  { name = "Massimiliano Brighindi" }
+  { name = "Massimiliano Brighindi", email = "brighissimo@users.noreply.github.com" }
 ]
-keywords = ["OMNIA", "MB-X.01", "SEI", "IRI", "structural-measurement", "opportunity-detection"]
+license = { file = "LICENSE" }
+keywords = ["omnia", "radar", "structural-detection", "drift", "signal-persistence"]
 
 [project.urls]
 Repository = "https://github.com/Tuttotorna/OMNIA-RADAR"
+DOI = "https://doi.org/10.5281/zenodo.19829096"
 
-[tool.pytest.ini_options]
-testpaths = ["tests"]
-pythonpath = ["."]
+[tool.setuptools.packages.find]
+include = ["omnia_radar*"]
