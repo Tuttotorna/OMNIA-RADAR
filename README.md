@@ -28,6 +28,8 @@ Decision remains external.
 
 ---
 
+- [`docs/OMNIA_RADAR_PUBLIC_POSITION.md`](docs/OMNIA_RADAR_PUBLIC_POSITION.md)
+
 ## What OMNIA-RADAR is
 
 OMNIA-RADAR is a post-hoc structural detection layer.
@@ -265,6 +267,42 @@ python examples/radar_demo.py
 - OMNIA-INVARIANCE: https://github.com/Tuttotorna/OMNIA-INVARIANCE
 - OMNIA-VALIDATION: https://github.com/Tuttotorna/OMNIA-VALIDATION
 - omnia-limit: https://github.com/Tuttotorna/omnia-limit
+
+---
+
+## Public position
+
+OMNIA-RADAR public positioning is documented here:
+
+- [`docs/OMNIA_RADAR_PUBLIC_POSITION.md`](docs/OMNIA_RADAR_PUBLIC_POSITION.md)
+
+Core thesis:
+
+```text
+detection != judgment
+RADAR signal != final decision
+```
+
+Core boundary:
+
+```text
+detection != decision
+measurement != inference != decision
+```
+
+Core role:
+
+```text
+OMNIA-RADAR scans for structural warning signals before semantic evaluation or final decision.
+```
+
+OMNIA-RADAR does not decide truth.
+
+It does not certify safety.
+
+It does not approve deployment.
+
+It detects structural risk signals that may require measurement, validation, retry, escalation, or external review.
 
 ---
 
