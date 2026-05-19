@@ -28,8 +28,6 @@ Decision remains external.
 
 ---
 
-- [`docs/OMNIA_RADAR_PUBLIC_POSITION.md`](docs/OMNIA_RADAR_PUBLIC_POSITION.md)
-
 ## What OMNIA-RADAR is
 
 OMNIA-RADAR is a post-hoc structural detection layer.
@@ -303,7 +301,6 @@ It does not certify safety.
 It does not approve deployment.
 
 It detects structural risk signals that may require measurement, validation, retry, escalation, or external review.
-
 ---
 
 ## Citation
