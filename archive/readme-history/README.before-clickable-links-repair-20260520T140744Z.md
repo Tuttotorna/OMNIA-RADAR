@@ -175,8 +175,7 @@ For core structural measurement, start here:
 
     measurement != inference != decision
 
----
-
 ## License
 
 MIT.
+
