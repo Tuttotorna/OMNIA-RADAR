@@ -1,0 +1,70 @@
+{
+  "generated_utc": "2026-05-20T12:40:20.359385+00:00",
+  "repository": "OMNIA-RADAR",
+  "role": "structural signal detection layer",
+  "ecosystem": "MB-X.01 / OMNIA",
+  "canonical_boundary": "measurement != inference != decision",
+  "radar_pipeline": [
+    "candidate trace",
+    "signal scan",
+    "anomaly / persistence / drift",
+    "measurement candidate",
+    "external validation"
+  ],
+  "public_claim": "OMNIA-RADAR detects structural signal candidates before full OMNIA measurement.",
+  "non_claims": [
+    "does not infer semantic truth",
+    "does not decide correctness",
+    "does not replace OMNIA measurement",
+    "does not replace OMNIA-VALIDATION",
+    "does not perform security scanning",
+    "does not perform cryptographic attacks",
+    "does not convert detection into final decision"
+  ],
+  "expected_docs": [
+    "README.md",
+    "docs/QUICKSTART_RADAR.md",
+    "docs/RADAR_OVERVIEW.md",
+    "docs/SIGNAL_CONTRACT.md",
+    "docs/DETECTION_BOUNDARY.md",
+    "docs/ANOMALY_PERSISTENCE_DRIFT.md",
+    "docs/RADAR_MANIFEST.json"
+  ],
+  "related_repositories": [
+    {
+      "name": "lon-mirror",
+      "url": "https://github.com/Tuttotorna/lon-mirror",
+      "role": "Canonical ecosystem entry point"
+    },
+    {
+      "name": "OMNIA-VALIDATION",
+      "url": "https://github.com/Tuttotorna/OMNIA-VALIDATION",
+      "role": "Public validation showroom"
+    },
+    {
+      "name": "OMNIA",
+      "url": "https://github.com/Tuttotorna/OMNIA",
+      "role": "Core structural measurement engine"
+    },
+    {
+      "name": "OMNIABASE",
+      "url": "https://github.com/Tuttotorna/OMNIABASE",
+      "role": "Representation invariance foundation"
+    },
+    {
+      "name": "omnia-limit",
+      "url": "https://github.com/Tuttotorna/omnia-limit",
+      "role": "Stop / continue boundary layer"
+    },
+    {
+      "name": "OMNIA-INVARIANCE",
+      "url": "https://github.com/Tuttotorna/OMNIA-INVARIANCE",
+      "role": "Transformation and invariance layer"
+    },
+    {
+      "name": "OMNIA-CONSTANT",
+      "url": "https://github.com/Tuttotorna/OMNIA-CONSTANT",
+      "role": "Stable-region falsification layer"
+    }
+  ]
+}

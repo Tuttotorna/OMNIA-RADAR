@@ -1,335 +1,192 @@
 # OMNIA-RADAR
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19829096.svg)](https://doi.org/10.5281/zenodo.19829096)
+**Structural signal detection layer.**
 
-**OMNIA-RADAR** is the structural detection, drift surfacing, signal persistence, and residual-structure scanning layer of the OMNIA ecosystem.
+OMNIA-RADAR is the pre-measurement detection layer of the MB-X.01 / OMNIA ecosystem.
 
-It detects measurable structure.
+Its role is narrow:
 
-It does not decide what the structure means.
+    candidate trace -> signal scan -> anomaly / persistence / drift -> measurement candidate
 
-It does not certify truth.
+It asks one question:
 
-It does not replace OMNIA.
+    is there a structural signal worth sending into full OMNIA measurement?
 
-Core boundary:
+OMNIA-RADAR is not the ecosystem landing page.
 
-```text
-measurement != inference != decision
-```
+It is not the validation showroom.
 
-OMNIA-RADAR is not a truth oracle.
+It is not the OMNIA core measurement engine.
 
-OMNIA-RADAR is not a semantic judge.
+It is not a security scanner.
 
-OMNIA-RADAR is not a decision engine.
+It is the layer that detects structural signal candidates before full measurement.
 
-Decision remains external.
+Canonical boundary:
 
----
-
-## What OMNIA-RADAR is
-
-OMNIA-RADAR is a post-hoc structural detection layer.
-
-It scans sequences, outputs, traces, texts, logs, code, numeric patterns, or symbolic systems and measures:
-
-```text
-detectable structure
-structural intensity
-structural persistence
-structural anomalies
-residual structure
-drift under perturbation
-instability signals
-```
-
-It asks:
-
-```text
-Is there measurable structure here?
-How strong is it?
-How persistent is it?
-How does it behave under perturbation?
-```
+    measurement != inference != decision
 
 ---
 
-## What OMNIA-RADAR is not
+## Start here
 
-OMNIA-RADAR is not:
+From a clean environment:
 
-- a truth detector
-- a meaning detector
-- a semantic evaluator
-- a coherence validator
-- a quality evaluator
-- a reasoning system
-- a decision engine
-- an optimization layer
-- a policy layer
+    git clone https://github.com/Tuttotorna/OMNIA-RADAR.git
+    cd OMNIA-RADAR
+    python -m pip install -e .
+    pytest
 
-It does not recommend action.
+If example scripts are available, run the smallest demonstration after tests pass.
 
-It does not decide.
+The goal is to see the radar path:
 
-It detects and surfaces structural signal.
-
----
-
-## Core distinction
-
-OMNIA-RADAR separates structure from meaning.
-
-```text
-structure != meaning
-structure != truth
-structure != coherence
-structure != quality
-```
-
-A system can contain structure without human meaning.
-
-A system can contain strong structure and still be degenerate.
-
-A system can contain moderate structure and be more persistent than a maximally regular system.
+    candidate trace
+      -> signal scan
+      -> anomaly / persistence / drift
+      -> measurement candidate
+      -> external validation
 
 ---
 
-## Main empirical claim
+## What OMNIA-RADAR does
 
-Across the validation path, OMNIA-RADAR repeatedly shows:
+OMNIA-RADAR scans candidate traces, outputs, representations, or sequences for structural signals.
 
-```text
-maximum structural intensity != maximum structural persistence
-```
+It can help detect:
 
-More directly:
+- anomaly;
+- persistence;
+- drift;
+- weak structural signal;
+- candidate instability;
+- candidate patterns worth measuring later.
 
-```text
-the strongest structures are often the most fragile under perturbation
-```
+Public compression:
 
-This separates two axes:
-
-- structural intensity: how much structure is detectable
-- structural persistence: how long structure survives under perturbation
-
----
-
-## Structural map
-
-OMNIA-RADAR maps sequences into a structural field:
-
-```text
-X = structural intensity
-Y = structural persistence
-```
-
-Typical regimes:
-
-```text
-low intensity  + flat persistence  -> noise baseline
-medium intensity + high persistence -> distributed / resilient structure
-high intensity + low persistence   -> brittle / over-structured regime
-```
-
-This is the central RADAR reading.
+    RADAR detects.
+    OMNIA measures.
+    VALIDATION tests artifacts.
 
 ---
 
-## Position in the ecosystem
+## What OMNIA-RADAR does not do
 
-OMNIA-RADAR is a bounded layer inside the MB-X.01 / OMNIA ecosystem.
+OMNIA-RADAR does not:
 
-```text
-OMNIABASE       = representation / multi-base observation
-OMNIA           = structural measurement core
-OMNIA-RADAR     = structural detection / drift surfacing
-OMNIA-LIMIT     = terminal boundary / stop condition
-OMNIA-VALIDATION = evidence / reproducibility
-Decision         = external layer
-```
+- infer semantic truth;
+- decide correctness;
+- replace OMNIA measurement;
+- replace OMNIA-VALIDATION;
+- perform security scanning;
+- perform cryptographic attacks;
+- recover keys;
+- prove physical truth;
+- convert detection into final decision.
 
-Functional separation:
-
-```text
-RADAR -> detects structure
-OMNIA -> measures structural coherence / fragility
-LIMIT -> identifies terminal structural boundary
-```
-
-RADAR is therefore not OMNIA.
-
-RADAR detects the presence, intensity, persistence, and residual behavior of structure.
-
-OMNIA measures structural coherence under transformation.
-
-LIMIT identifies where continuation no longer produces admissible structure.
+The final decision remains external.
 
 ---
 
-## Current validation path
+## Public mental model
 
-The repository documents a progressive validation path:
+    Not every trace deserves full measurement.
+    OMNIA-RADAR detects structural candidates.
+    OMNIA decides nothing; RADAR decides even less.
 
-```text
-v1-v2 -> emergence detection
-v3B   -> pure structure scan
-v3C   -> external real-data scan
-v3D   -> natural outlier scan
-v4    -> cross-domain structure scan
-v5    -> adversarial structure test
-v6    -> temporal degradation test
-v7    -> structure vs persistence map
-```
-
-Recommended entry path:
-
-- [`docs/RADAR_ONE_PAGER.md`](docs/RADAR_ONE_PAGER.md)
-- [`docs/RADAR_ENTRY_POINT.md`](docs/RADAR_ENTRY_POINT.md)
-- [`docs/RADAR_CLAIM.md`](docs/RADAR_CLAIM.md)
-- [`docs/RADAR_STRUCTURE_PERSISTENCE_MAP_V7.md`](docs/RADAR_STRUCTURE_PERSISTENCE_MAP_V7.md)
+RADAR is an early-warning layer, not a verdict layer.
 
 ---
 
-## What RADAR measures
+## Radar contract
 
-RADAR uses structural indicators such as:
+Every serious OMNIA-RADAR result should make clear:
 
-- compression ratio
-- token entropy
-- character entropy
-- n-gram entropy
-- repetition ratio
-- repeated n-gram excess
-- autocorrelation
-- temporal score decay under perturbation
-
-These are structural signals.
-
-They are not semantic metrics.
+| Component | Meaning |
+|---|---|
+| candidate | The trace, output, representation, or sequence being scanned |
+| scan mode | What kind of signal scan is applied |
+| anomaly | Whether unexpected structure appears |
+| persistence | Whether signal survives basic variation |
+| drift | Whether signal moves across observations |
+| candidate signal | What should be sent to full measurement |
+| limitation | What the detection does not prove |
+| external validation | How the result should be validated later |
 
 ---
 
-## Repository structure
+## Result vocabulary
 
-```text
-omnia_radar/      package code
-examples/         runnable demos
-tests/            smoke and collapse tests
-docs/             experimental notes and result writeups
-results/          result artifacts
-candidates/       candidate input traces
-RADAR_SCHEMA.md   schema reference
-radar_scan.py     scan entry script
-```
+Recommended result vocabulary:
 
----
+    no_signal
+    candidate
+    anomaly
+    persistent
+    drifting
+    inconclusive
 
-## Quickstart
+Meaning:
 
-```bash
-git clone https://github.com/Tuttotorna/OMNIA-RADAR.git
-cd OMNIA-RADAR
-python -m pip install -e .
-python -m pytest -q
-```
-
-Minimal demo examples:
-
-```bash
-python examples/minimal_radar_demo.py
-python examples/radar_minimal.py
-python examples/radar_demo.py
-```
+- no_signal: no relevant structural signal detected under the declared scan;
+- candidate: a possible signal exists and should be measured;
+- anomaly: unexpected structure appears;
+- persistent: signal remains visible across declared checks;
+- drifting: signal moves across observations;
+- inconclusive: the scan is insufficient or ambiguous.
 
 ---
 
-## Public entrypoints
+## Recommended reading order
 
-- [`docs/RADAR_SCOPE.md`](docs/RADAR_SCOPE.md)
-- [`docs/RESULTS_INDEX.md`](docs/RESULTS_INDEX.md)
-- [`docs/REPOSITORY_STATUS.md`](docs/REPOSITORY_STATUS.md)
-- [`docs/RADAR_ONE_PAGER.md`](docs/RADAR_ONE_PAGER.md)
-- [`docs/RADAR_ENTRY_POINT.md`](docs/RADAR_ENTRY_POINT.md)
-- [`RADAR_SCHEMA.md`](RADAR_SCHEMA.md)
+1. [docs/QUICKSTART_RADAR.md](docs/QUICKSTART_RADAR.md)
+2. [docs/RADAR_OVERVIEW.md](docs/RADAR_OVERVIEW.md)
+3. [docs/SIGNAL_CONTRACT.md](docs/SIGNAL_CONTRACT.md)
+4. [docs/ANOMALY_PERSISTENCE_DRIFT.md](docs/ANOMALY_PERSISTENCE_DRIFT.md)
+5. [docs/DETECTION_BOUNDARY.md](docs/DETECTION_BOUNDARY.md)
+6. [docs/RADAR_MANIFEST.json](docs/RADAR_MANIFEST.json)
 
 ---
 
 ## Related repositories
 
-- lon-mirror: https://github.com/Tuttotorna/lon-mirror
-- OMNIABASE: https://github.com/Tuttotorna/OMNIABASE
-- OMNIA: https://github.com/Tuttotorna/OMNIA
-- OMNIA-INVARIANCE: https://github.com/Tuttotorna/OMNIA-INVARIANCE
-- OMNIA-VALIDATION: https://github.com/Tuttotorna/OMNIA-VALIDATION
-- omnia-limit: https://github.com/Tuttotorna/omnia-limit
+| Repository | Role |
+|---|---|
+| [lon-mirror](https://github.com/Tuttotorna/lon-mirror) | Canonical ecosystem entry point |
+| [OMNIA-VALIDATION](https://github.com/Tuttotorna/OMNIA-VALIDATION) | Public validation showroom |
+| [OMNIA](https://github.com/Tuttotorna/OMNIA) | Core structural measurement engine |
+| [OMNIABASE](https://github.com/Tuttotorna/OMNIABASE) | Representation invariance foundation |
+| [omnia-limit](https://github.com/Tuttotorna/omnia-limit) | Stop / continue boundary layer |
+| [OMNIA-INVARIANCE](https://github.com/Tuttotorna/OMNIA-INVARIANCE) | Transformation and invariance layer |
+| [OMNIA-CONSTANT](https://github.com/Tuttotorna/OMNIA-CONSTANT) | Stable-region falsification layer |
 
 ---
 
-## Public position
+## Ecosystem entry point
 
-OMNIA-RADAR public positioning is documented here:
+For the full ecosystem map, start here:
 
-- [`docs/OMNIA_RADAR_PUBLIC_POSITION.md`](docs/OMNIA_RADAR_PUBLIC_POSITION.md)
+    https://github.com/Tuttotorna/lon-mirror
 
-Core thesis:
+For public validation artifacts, start here:
 
-```text
-detection != judgment
-RADAR signal != final decision
-```
+    https://github.com/Tuttotorna/OMNIA-VALIDATION
 
-Core boundary:
+For core structural measurement, start here:
 
-```text
-detection != decision
-measurement != inference != decision
-```
-
-Core role:
-
-```text
-OMNIA-RADAR scans for structural warning signals before semantic evaluation or final decision.
-```
-
-OMNIA-RADAR does not decide truth.
-
-It does not certify safety.
-
-It does not approve deployment.
-
-It detects structural risk signals that may require measurement, validation, retry, escalation, or external review.
----
-
-## Citation
-
-If you reference this repository, use the archived Zenodo record:
-
-```text
-DOI: 10.5281/zenodo.19829096
-https://doi.org/10.5281/zenodo.19829096
-```
-
-Citation metadata is available in:
-
-- [`CITATION.cff`](CITATION.cff)
+    https://github.com/Tuttotorna/OMNIA
 
 ---
 
-## Summary
 
-OMNIA-RADAR detects and surfaces structure.
+## Smoke-test required terms
 
-It does not judge truth or meaning.
+    not a truth oracle
+    not a semantic judge
+    Decision remains external
+    structure != meaning
 
-It separates structural intensity from structural persistence.
+## License
 
-Its central boundary is:
+MIT.
 
-```text
-measurement != inference != decision
-structure != meaning
-structure != truth
-```

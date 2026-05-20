@@ -1,0 +1,21 @@
+{
+  "case_id": "omnia-radar-minimal-detection-v0",
+  "purpose": "Demonstrate the OMNIA-RADAR detection contract without claiming final measurement or semantic truth.",
+  "boundary": "measurement != inference != decision",
+  "pipeline": [
+    "candidate trace",
+    "signal scan",
+    "anomaly / persistence / drift",
+    "measurement candidate",
+    "external validation"
+  ],
+  "candidate_ref": "placeholder candidate trace",
+  "scan_mode": "placeholder structural signal scan",
+  "anomaly_signal": null,
+  "persistence_signal": null,
+  "drift_signal": null,
+  "radar_result": "inconclusive",
+  "measurement_candidate": false,
+  "limitation": "This placeholder artifact defines the public RADAR detection shape. It is not a scientific result.",
+  "external_validation": "Decision remains external; artifacts should be validated through OMNIA-VALIDATION."
+}
