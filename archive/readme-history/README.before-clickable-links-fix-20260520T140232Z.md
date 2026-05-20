@@ -4,15 +4,51 @@
 
 [![DOI](https://zenodo.org/badge/1143359510.svg)](https://zenodo.org/badge/latestdoi/1143359510)
 
-Release DOI: [10.5281/zenodo.19829096](https://doi.org/10.5281/zenodo.19829096)
+Release DOI:
 
-GitHub release: [OMNIA-RADAR v1.0.0 release](https://github.com/Tuttotorna/OMNIA-RADAR/releases/tag/v1.0.0)
+    10.5281/zenodo.19829096
+
+Zenodo latest DOI link:
+
+    https://doi.org/10.5281/zenodo.19829096
+
+GitHub release:
+
+    https://github.com/Tuttotorna/OMNIA-RADAR/releases/tag/v1.0.0
+
+**Structural signal detection layer.**
+
+OMNIA-RADAR is the pre-measurement detection layer of the MB-X.01 / OMNIA ecosystem.
+
+Its role is narrow:
+
+    candidate trace -> signal scan -> anomaly / persistence / drift -> measurement candidate
+
+It asks one question:
+
+    is there a structural signal worth sending into full OMNIA measurement?
+
+OMNIA-RADAR is not the ecosystem landing page.
+
+It is not the validation showroom.
+
+It is not the OMNIA core measurement engine.
+
+It is not a security scanner.
+
+It is the layer that detects structural signal candidates before full measurement.
+
+Canonical boundary:
+
+    measurement != inference != decision
+
+---
 
 ## Start here
 
 From a clean environment:
 
-    git clone [OMNIA-RADAR.git](https://github.com/Tuttotorna/OMNIA-RADAR.git)
+    git clone https://github.com/Tuttotorna/OMNIA-RADAR.git
     cd OMNIA-RADAR
     python -m pip install -e .
     pytest
@@ -128,19 +164,33 @@ Meaning:
 
 ---
 
+## Related repositories
+
+| Repository | Role |
+|---|---|
+| [lon-mirror](https://github.com/Tuttotorna/lon-mirror) | Canonical ecosystem entry point |
+| [OMNIA-VALIDATION](https://github.com/Tuttotorna/OMNIA-VALIDATION) | Public validation showroom |
+| [OMNIA](https://github.com/Tuttotorna/OMNIA) | Core structural measurement engine |
+| [OMNIABASE](https://github.com/Tuttotorna/OMNIABASE) | Representation invariance foundation |
+| [omnia-limit](https://github.com/Tuttotorna/omnia-limit) | Stop / continue boundary layer |
+| [OMNIA-INVARIANCE](https://github.com/Tuttotorna/OMNIA-INVARIANCE) | Transformation and invariance layer |
+| [OMNIA-CONSTANT](https://github.com/Tuttotorna/OMNIA-CONSTANT) | Stable-region falsification layer |
+
+---
+
 ## Ecosystem entry point
 
 For the full ecosystem map, start here:
 
-[lon-mirror](https://github.com/Tuttotorna/lon-mirror)
+    https://github.com/Tuttotorna/lon-mirror
 
 For public validation artifacts, start here:
 
-[OMNIA-VALIDATION](https://github.com/Tuttotorna/OMNIA-VALIDATION)
+    https://github.com/Tuttotorna/OMNIA-VALIDATION
 
 For core structural measurement, start here:
 
-[OMNIA](https://github.com/Tuttotorna/OMNIA)
+    https://github.com/Tuttotorna/OMNIA
 
 ---
 
@@ -151,29 +201,6 @@ For core structural measurement, start here:
     not a semantic judge
     Decision remains external
     structure != meaning
-
-## Related repositories
-
-| Repository | Role |
-|---|---|
-| [lon-mirror](https://github.com/Tuttotorna/lon-mirror) | Canonical public entry point |
-| [OMNIA-VALIDATION](https://github.com/Tuttotorna/OMNIA-VALIDATION) | Public validation showroom |
-| [OMNIA](https://github.com/Tuttotorna/OMNIA) | Core structural measurement engine |
-| [OMNIABASE](https://github.com/Tuttotorna/OMNIABASE) | Representation invariance foundation |
-| [omnia-limit](https://github.com/Tuttotorna/omnia-limit) | Stop / continue boundary layer |
-| [OMNIA-RADAR](https://github.com/Tuttotorna/OMNIA-RADAR) | Structural signal detection layer |
-| [OMNIA-INVARIANCE](https://github.com/Tuttotorna/OMNIA-INVARIANCE) | Structural invariance layer |
-| [OMNIA-CONSTANT](https://github.com/Tuttotorna/OMNIA-CONSTANT) | Structural constant candidate layer |
-| [OMNIAMIND](https://github.com/Tuttotorna/OMNIAMIND) | Structural cognition orchestration layer |
-| [OMNIA-THREE-BODY](https://github.com/Tuttotorna/OMNIA-THREE-BODY) | Dynamic divergence stress test |
-| [OMNIA-SECURITY](https://github.com/Tuttotorna/OMNIA-SECURITY) | Bounded structural security diagnostics |
-| [OMNIA-CRYPTO](https://github.com/Tuttotorna/OMNIA-CRYPTO) | Bounded structural crypto diagnostics |
-
----
-
-## Boundary and smoke-test required terms
-
-    measurement != inference != decision
 
 ## License
 
