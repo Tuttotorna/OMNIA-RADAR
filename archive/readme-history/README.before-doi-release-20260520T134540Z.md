@@ -1,21 +1,5 @@
 # OMNIA-RADAR
 
-## DOI
-
-[![DOI](https://zenodo.org/badge/1143359510.svg)](https://zenodo.org/badge/latestdoi/1143359510)
-
-Release DOI:
-
-    10.5281/zenodo.19829096
-
-Zenodo latest DOI link:
-
-    https://doi.org/10.5281/zenodo.19829096
-
-GitHub release:
-
-    https://github.com/Tuttotorna/OMNIA-RADAR/releases/tag/v1.0.0
-
 **Structural signal detection layer.**
 
 OMNIA-RADAR is the pre-measurement detection layer of the MB-X.01 / OMNIA ecosystem.
