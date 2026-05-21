@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Python ${{ matrix.python-version }}
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install package and test dependencies
+        shell: bash
+        run: |
+          python -m pip install --upgrade pip
+      python -m pip install pytest
+      cd ..
+      git clone https://github.com/Tuttotorna/OMNIA.git
+      git clone https://github.com/Tuttotorna/omnia-limit.git
+      git clone https://github.com/Tuttotorna/OMNIA-VALIDATION.git
+      python -m pip install -e OMNIA
+      python -m pip install -e omnia-limit
+      python -m pip install -e OMNIA-VALIDATION
+      cd "$GITHUB_WORKSPACE"
+      python -m pip install -e .
+
+      - name: Run tests
+        shell: bash
+        run: |
+          pytest -q
