@@ -24,6 +24,25 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Checkout OMNIA backbone
+        uses: actions/checkout@v4
+        with:
+          repository: Tuttotorna/OMNIA
+          path: _backbone/OMNIA
+
+      - name: Checkout omnia-limit backbone
+        uses: actions/checkout@v4
+        with:
+          repository: Tuttotorna/omnia-limit
+          path: _backbone/omnia-limit
+
+      - name: Checkout OMNIA-VALIDATION backbone
+        uses: actions/checkout@v4
+        with:
+          repository: Tuttotorna/OMNIA-VALIDATION
+          path: _backbone/OMNIA-VALIDATION
+
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -33,18 +52,16 @@ jobs:
         shell: bash
         run: |
           python -m pip install --upgrade pip
-      python -m pip install pytest
-      cd ..
-      git clone https://github.com/Tuttotorna/OMNIA.git
-      git clone https://github.com/Tuttotorna/omnia-limit.git
-      git clone https://github.com/Tuttotorna/OMNIA-VALIDATION.git
-      python -m pip install -e OMNIA
-      python -m pip install -e omnia-limit
-      python -m pip install -e OMNIA-VALIDATION
-      cd "$GITHUB_WORKSPACE"
-      python -m pip install -e .
+          python -m pip install pytest
+          python -m pip install -e _backbone/OMNIA
+          python -m pip install -e _backbone/omnia-limit
+          python -m pip install -e _backbone/OMNIA-VALIDATION
 
-      - name: Run tests
+          python -m pip install -e .
+
+      - name: Run full test suite
         shell: bash
+        env:
+          OMNIA_SOURCE_DIR: ${{ github.workspace }}/_backbone/OMNIA
         run: |
-          pytest -q
+          python -m pytest -q

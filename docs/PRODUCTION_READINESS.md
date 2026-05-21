@@ -52,3 +52,13 @@ python scripts/local_validate.py
 ```
 
 Then verify that the GitHub Actions workflow passes on the default branch.
+
+<!-- CI_REPAIR_PASS_2026_05_21 -->
+
+## CI repair pass
+
+Last repair pass: `2026-05-21T14:19:12Z`
+
+This pass preserves repository-specific CI assertions while also running the full test suite.
+
+It also avoids accidental local-package shadowing by using `OMNIA_SOURCE_DIR` and by prioritizing the canonical `OMNIA` checkout in CI.
