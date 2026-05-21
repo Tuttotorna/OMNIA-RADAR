@@ -523,7 +523,7 @@ This claim is bounded and testable.
 Avoid claiming:
 
 ```text
-OMNIA-RADAR proves truth
+OMNIA-RADAR measures structural stability
 OMNIA-RADAR proves falsehood
 OMNIA-RADAR certifies safety
 OMNIA-RADAR approves deployment

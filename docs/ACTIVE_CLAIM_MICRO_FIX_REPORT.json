@@ -1,0 +1,77 @@
+{
+  "repository": "OMNIA-RADAR",
+  "timestamp_utc": "2026-05-21T16:46:56Z",
+  "active_before_count": 1,
+  "active_after_count": 0,
+  "safe_before_count": 3,
+  "safe_after_count": 3,
+  "active_before": [
+    {
+      "file": "docs/OMNIA_RADAR_PUBLIC_POSITION.md",
+      "line": 526,
+      "patterns": [
+        "\\bproves?\\s+truth\\b"
+      ],
+      "classification": "active_risky_claim",
+      "text": "OMNIA-RADAR proves truth"
+    }
+  ],
+  "active_after": [],
+  "safe_after": [
+    {
+      "file": "README.md",
+      "line": 184,
+      "patterns": [
+        "\\btruth\\s+oracle\\b",
+        "\\boracle\\b"
+      ],
+      "classification": "safe_boundary_or_negative",
+      "text": "not a truth oracle"
+    },
+    {
+      "file": "docs/OMNIA_RADAR_PUBLIC_POSITION.md",
+      "line": 9,
+      "patterns": [
+        "\\btruth\\s+oracle\\b",
+        "\\boracle\\b"
+      ],
+      "classification": "safe_boundary_or_negative",
+      "text": "OMNIA-RADAR is not a truth oracle."
+    },
+    {
+      "file": "docs/PRODUCTION_READINESS.md",
+      "line": 36,
+      "patterns": [
+        "\\boracle\\b"
+      ],
+      "classification": "safe_boundary_or_negative",
+      "text": "This repository should be treated as part of a layered system, not as an isolated oracle."
+    }
+  ],
+  "fix": {
+    "changed_files": [
+      "docs/OMNIA_RADAR_PUBLIC_POSITION.md"
+    ],
+    "line_changes": [
+      {
+        "file": "docs/OMNIA_RADAR_PUBLIC_POSITION.md",
+        "line": 526,
+        "before": "OMNIA-RADAR proves truth",
+        "after": "OMNIA-RADAR measures structural stability",
+        "applied": [
+          {
+            "pattern": "\\bproves?\\s+truth\\b",
+            "replacement": "measures structural stability"
+          }
+        ]
+      }
+    ]
+  },
+  "tests": {
+    "status": "pass",
+    "passed": 12,
+    "failed": 0,
+    "returncode": 0,
+    "summary": "12 passed in 1.71s"
+  }
+}
