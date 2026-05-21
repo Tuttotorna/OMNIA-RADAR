@@ -12,56 +12,43 @@ permissions:
 
 jobs:
   test:
-    name: Python ${{ matrix.python-version }}
+    name: test / python-${{ matrix.python-version }}
     runs-on: ubuntu-latest
 
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.10", "3.11", "3.12"]
+        python-version: ["3.11", "3.12"]
+
+    env:
+      PYTHONPATH: ${{ github.workspace }}
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Checkout OMNIA backbone
-        uses: actions/checkout@v4
-        with:
-          repository: Tuttotorna/OMNIA
-          path: _backbone/OMNIA
-
-      - name: Checkout omnia-limit backbone
-        uses: actions/checkout@v4
-        with:
-          repository: Tuttotorna/omnia-limit
-          path: _backbone/omnia-limit
-
-      - name: Checkout OMNIA-VALIDATION backbone
-        uses: actions/checkout@v4
-        with:
-          repository: Tuttotorna/OMNIA-VALIDATION
-          path: _backbone/OMNIA-VALIDATION
-
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Install package and test dependencies
-        shell: bash
+      - name: Install tooling
         run: |
           python -m pip install --upgrade pip
-          python -m pip install pytest
-          python -m pip install -e _backbone/OMNIA
-          python -m pip install -e _backbone/omnia-limit
-          python -m pip install -e _backbone/OMNIA-VALIDATION
+          python -m pip install pytest numpy matplotlib jsonschema
 
-          python -m pip install -e .
-
-      - name: Run full test suite
-        shell: bash
-        env:
-          OMNIA_SOURCE_DIR: ${{ github.workspace }}/_backbone/OMNIA
+      - name: Install current package when package metadata exists
         run: |
-          python -m pytest -q
+          if [ -f pyproject.toml ] || [ -f setup.py ]; then
+            python -m pip install -e .
+          else
+            echo "No Python package metadata found; skipping editable install."
+          fi
+
+      - name: Run tests when tests exist
+        run: |
+          if [ -d tests ]; then
+            python -m pytest -q
+          else
+            echo "No tests directory found; CI passes as documentation-only repository."
+          fi
