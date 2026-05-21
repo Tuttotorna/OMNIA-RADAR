@@ -16,11 +16,30 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      PYTHONPATH: ${{ github.workspace }}
+      OMNIA_SOURCE_DIR: ${{ github.workspace }}/_backbone/OMNIA
+      PYTHONPATH: ${{ github.workspace }}:${{ github.workspace }}/_backbone/OMNIA:${{ github.workspace }}/_backbone/omnia-limit:${{ github.workspace }}/_backbone/OMNIA-INVARIANCE
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Checkout OMNIA backbone
+        uses: actions/checkout@v4
+        with:
+          repository: Tuttotorna/OMNIA
+          path: _backbone/OMNIA
+
+      - name: Checkout omnia-limit backbone
+        uses: actions/checkout@v4
+        with:
+          repository: Tuttotorna/omnia-limit
+          path: _backbone/omnia-limit
+
+      - name: Checkout OMNIA-INVARIANCE backbone
+        uses: actions/checkout@v4
+        with:
+          repository: Tuttotorna/OMNIA-INVARIANCE
+          path: _backbone/OMNIA-INVARIANCE
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -31,6 +50,18 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           python -m pip install pytest numpy matplotlib jsonschema
+
+      - name: Install backbone packages
+        run: |
+          if [ -d _backbone/omnia-limit ]; then
+            python -m pip install -e _backbone/omnia-limit
+          fi
+          if [ -d _backbone/OMNIA ]; then
+            python -m pip install -e _backbone/OMNIA
+          fi
+          if [ -d _backbone/OMNIA-INVARIANCE ]; then
+            python -m pip install -e _backbone/OMNIA-INVARIANCE
+          fi
 
       - name: Install current package when package metadata exists
         run: |
