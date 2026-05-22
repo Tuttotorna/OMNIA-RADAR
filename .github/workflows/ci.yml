@@ -17,7 +17,7 @@ jobs:
 
     env:
       OMNIA_SOURCE_DIR: ${{ github.workspace }}/_backbone/OMNIA
-      PYTHONPATH: ${{ github.workspace }}:${{ github.workspace }}/_backbone/OMNIA:${{ github.workspace }}/_backbone/omnia-limit:${{ github.workspace }}/_backbone/OMNIA-INVARIANCE
+      PYTHONPATH: ${{ github.workspace }}:${{ github.workspace }}/_backbone/OMNIA:${{ github.workspace }}/_backbone/omnia-limit:${{ github.workspace }}/_backbone/OMNIA-INVARIANCE:${{ github.workspace }}/_backbone/OMNIA-VALIDATION
 
     steps:
       - name: Checkout repository
@@ -41,6 +41,12 @@ jobs:
           repository: Tuttotorna/OMNIA-INVARIANCE
           path: _backbone/OMNIA-INVARIANCE
 
+      - name: Checkout OMNIA-VALIDATION backbone
+        uses: actions/checkout@v4
+        with:
+          repository: Tuttotorna/OMNIA-VALIDATION
+          path: _backbone/OMNIA-VALIDATION
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -62,6 +68,9 @@ jobs:
           if [ -d _backbone/OMNIA-INVARIANCE ]; then
             python -m pip install -e _backbone/OMNIA-INVARIANCE
           fi
+          if [ -d _backbone/OMNIA-VALIDATION ]; then
+            python -m pip install -e _backbone/OMNIA-VALIDATION
+          fi
 
       - name: Install current package when package metadata exists
         run: |
@@ -71,10 +80,10 @@ jobs:
             echo "No Python package metadata found; skipping editable install."
           fi
 
-      - name: Run tests when tests exist
+      - name: Run local tests only
         run: |
           if [ -d tests ]; then
-            python -m pytest -q
+            python -m pytest -q tests
           else
             echo "No tests directory found; CI passes as documentation-only repository."
           fi
