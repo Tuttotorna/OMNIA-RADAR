@@ -4,7 +4,6 @@
 
 <!-- OMNIA_RADAR_AUDITOR_TOP_START -->
 
-# OMNIA-RADAR
 
 ## Concrete entrypoint: OMNIA Radar Auditor
 
