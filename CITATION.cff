@@ -3,6 +3,10 @@ message: "If you use OMNIA-RADAR or OMNIA Radar Auditor, please cite this archiv
 title: "OMNIA-RADAR: Signal, Drift, Anomaly, and Alert Auditing Across Observation Streams"
 version: "1.0.1"
 date-released: "2026-05-24"
+doi: "10.5281/zenodo.20369230"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.20369230"
 authors:
   - family-names: "Brighindi"
     given-names: "Massimiliano"
