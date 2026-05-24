@@ -1,89 +1,58 @@
-name: CI
+name: OMNIA-RADAR CI
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
   workflow_dispatch:
 
-permissions:
-  contents: read
-
 jobs:
-  test:
-    name: test / python-3.12
+  omnia-radar-auditor:
+    name: Test OMNIA Radar Auditor
     runs-on: ubuntu-latest
-
-    env:
-      OMNIA_SOURCE_DIR: ${{ github.workspace }}/_backbone/OMNIA
-      PYTHONPATH: ${{ github.workspace }}:${{ github.workspace }}/_backbone/OMNIA:${{ github.workspace }}/_backbone/omnia-limit:${{ github.workspace }}/_backbone/OMNIA-INVARIANCE:${{ github.workspace }}/_backbone/OMNIA-VALIDATION
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Checkout OMNIA backbone
-        uses: actions/checkout@v4
-        with:
-          repository: Tuttotorna/OMNIA
-          path: _backbone/OMNIA
-
-      - name: Checkout omnia-limit backbone
-        uses: actions/checkout@v4
-        with:
-          repository: Tuttotorna/omnia-limit
-          path: _backbone/omnia-limit
-
-      - name: Checkout OMNIA-INVARIANCE backbone
-        uses: actions/checkout@v4
-        with:
-          repository: Tuttotorna/OMNIA-INVARIANCE
-          path: _backbone/OMNIA-INVARIANCE
-
-      - name: Checkout OMNIA-VALIDATION backbone
-        uses: actions/checkout@v4
-        with:
-          repository: Tuttotorna/OMNIA-VALIDATION
-          path: _backbone/OMNIA-VALIDATION
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Install tooling
+      - name: Upgrade pip
         run: |
           python -m pip install --upgrade pip
-          python -m pip install pytest numpy matplotlib jsonschema
 
-      - name: Install backbone packages
+      - name: Install package
         run: |
-          if [ -d _backbone/omnia-limit ]; then
-            python -m pip install -e _backbone/omnia-limit
-          fi
-          if [ -d _backbone/OMNIA ]; then
-            python -m pip install -e _backbone/OMNIA
-          fi
-          if [ -d _backbone/OMNIA-INVARIANCE ]; then
-            python -m pip install -e _backbone/OMNIA-INVARIANCE
-          fi
-          if [ -d _backbone/OMNIA-VALIDATION ]; then
-            python -m pip install -e _backbone/OMNIA-VALIDATION
-          fi
+          python -m pip install -e .
 
-      - name: Install current package when package metadata exists
+      - name: Install test dependencies
         run: |
-          if [ -f pyproject.toml ] || [ -f setup.py ]; then
-            python -m pip install -e .
-          else
-            echo "No Python package metadata found; skipping editable install."
-          fi
+          python -m pip install pytest
 
-      - name: Run local tests only
+      - name: Run standalone auditor tests
         run: |
-          if [ -d tests ]; then
-            python -m pytest -q tests
-          else
-            echo "No tests directory found; CI passes as documentation-only repository."
-          fi
+          python -m pytest -q tests/test_omnia_radar_auditor.py
+
+      - name: Run OMNIA Radar Auditor smoke test
+        run: |
+          python -m omnia_radar_auditor.cli --input examples/sample_radar_stream.jsonl --out-dir ci_report
+
+      - name: Show generated certificate
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          p = Path("ci_report/certificate.json")
+          if not p.exists():
+              raise SystemExit("Missing ci_report/certificate.json")
+
+          data = json.loads(p.read_text(encoding="utf-8"))
+          print(json.dumps(data, indent=2))
+          PY

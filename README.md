@@ -1,3 +1,186 @@
+<!-- OMNIA_RADAR_AUDITOR_TOP_START -->
+
+# OMNIA-RADAR
+
+## Concrete entrypoint: OMNIA Radar Auditor
+
+This repository now has a direct operational tool:
+
+    python -m omnia_radar_auditor.cli --input examples/sample_radar_stream.jsonl --out-dir report
+
+It solves a concrete problem:
+
+    given streams of structural observations over time,
+    detect normal signal,
+    drift,
+    anomaly,
+    and alert conditions.
+
+In short:
+
+    streams / observations over time -> signal / drift / anomaly / alert report
+
+## What problem does it solve?
+
+Systems often fail gradually before they fail visibly.
+
+OMNIA-RADAR turns temporal structural movement into a reproducible audit:
+
+    group observations by stream_id
+    order each stream by time or step
+    build a baseline window
+    measure deviation from baseline
+    measure step-to-step shock
+    classify each observation as signal, drift, anomaly, or alert
+    emit a reproducible certificate
+    optionally fail CI when alerts appear
+
+## Install
+
+Clone the repository:
+
+    git clone https://github.com/Tuttotorna/OMNIA-RADAR.git
+    cd OMNIA-RADAR
+
+Install locally:
+
+    pip install -e .
+
+The auditor only uses the Python standard library.
+
+## Run
+
+Run the sample audit:
+
+    python -m omnia_radar_auditor.cli --input examples/sample_radar_stream.jsonl --out-dir report
+
+Run and fail if alert is detected:
+
+    python -m omnia_radar_auditor.cli --input examples/sample_radar_stream.jsonl --out-dir report --fail-on-alert
+
+Run and fail if anomaly or alert is detected:
+
+    python -m omnia_radar_auditor.cli --input examples/sample_radar_stream.jsonl --out-dir report --fail-on-anomaly
+
+## Input format
+
+The auditor accepts JSONL.
+
+Required fields:
+
+    stream_id
+    step
+    value
+
+Optional fields:
+
+    timestamp
+    domain
+    metric
+    note
+
+Example:
+
+    {"stream_id":"omega_stream","step":1,"value":0.91}
+    {"stream_id":"omega_stream","step":2,"value":0.90}
+    {"stream_id":"omega_stream","step":3,"value":0.40}
+
+Classification rule:
+
+    signal  = stable movement inside baseline tolerance
+    drift   = gradual deviation from baseline
+    anomaly = strong deviation or shock
+    alert   = critical deviation or repeated anomaly
+
+## Output
+
+The auditor writes:
+
+    report.json
+    report.csv
+    report.html
+    drift_events.jsonl
+    anomaly_events.jsonl
+    alert_events.jsonl
+    certificate.json
+
+Meaning:
+
+    report.json
+    Full structured radar analysis.
+
+    report.csv
+    Spreadsheet-friendly event summary.
+
+    report.html
+    Human-readable radar report.
+
+    drift_events.jsonl
+    One JSON object per drift event.
+
+    anomaly_events.jsonl
+    One JSON object per anomaly event.
+
+    alert_events.jsonl
+    One JSON object per alert event.
+
+    certificate.json
+    Reproducibility certificate with thresholds, counts, and boundary statement.
+
+## CI gate
+
+Fail when alert appears:
+
+    python -m omnia_radar_auditor.cli --input examples/sample_radar_stream.jsonl --out-dir report --fail-on-alert
+
+Fail when anomaly or alert appears:
+
+    python -m omnia_radar_auditor.cli --input examples/sample_radar_stream.jsonl --out-dir report --fail-on-anomaly
+
+Exit codes:
+
+    0 = analysis completed without selected blocking condition
+    2 = anomaly detected under --fail-on-anomaly
+    3 = alert detected under --fail-on-alert or --fail-on-anomaly
+    4 = invalid input or measurement error
+
+## What this is not
+
+This is not prediction.
+
+It does not infer future truth.
+
+It does not decide what action to take.
+
+It measures structural movement inside the supplied stream boundary.
+
+The boundary is explicit:
+
+    measurement only;
+    radar alert means structural deviation inside supplied streams,
+    not semantic danger or future prediction.
+
+## Why the rest of the repository still matters
+
+The rest of this repository documents the radar concept:
+
+    temporal structural monitoring
+    signal movement
+    drift
+    anomaly
+    alert
+    baseline deviation
+    shock detection
+    measurement boundary
+
+The code above is the operational entrypoint.
+
+The repository below is the derivation path.
+
+<!-- OMNIA_RADAR_AUDITOR_TOP_END -->
+
+---
+
 <!-- MB-X.01 LON RELEASE:START -->
 
 ## MB-X.01 / L.O.N. release state

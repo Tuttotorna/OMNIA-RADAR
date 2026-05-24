@@ -1,0 +1,16 @@
+{"stream_id":"omega_stream","step":1,"domain":"structural","metric":"omega","value":0.920,"note":"baseline"}
+{"stream_id":"omega_stream","step":2,"domain":"structural","metric":"omega","value":0.918,"note":"baseline"}
+{"stream_id":"omega_stream","step":3,"domain":"structural","metric":"omega","value":0.921,"note":"baseline"}
+{"stream_id":"omega_stream","step":4,"domain":"structural","metric":"omega","value":0.880,"note":"small drift"}
+{"stream_id":"omega_stream","step":5,"domain":"structural","metric":"omega","value":0.710,"note":"anomaly onset"}
+{"stream_id":"omega_stream","step":6,"domain":"structural","metric":"omega","value":0.310,"note":"alert rupture"}
+{"stream_id":"sei_stream","step":1,"domain":"limit","metric":"sei","value":0.220,"note":"baseline"}
+{"stream_id":"sei_stream","step":2,"domain":"limit","metric":"sei","value":0.214,"note":"baseline"}
+{"stream_id":"sei_stream","step":3,"domain":"limit","metric":"sei","value":0.218,"note":"baseline"}
+{"stream_id":"sei_stream","step":4,"domain":"limit","metric":"sei","value":0.195,"note":"signal"}
+{"stream_id":"sei_stream","step":5,"domain":"limit","metric":"sei","value":0.170,"note":"drift"}
+{"stream_id":"gate_stream","step":1,"domain":"symbolic","metric":"gate","value":"CONTINUE","note":"baseline"}
+{"stream_id":"gate_stream","step":2,"domain":"symbolic","metric":"gate","value":"CONTINUE","note":"baseline"}
+{"stream_id":"gate_stream","step":3,"domain":"symbolic","metric":"gate","value":"CONTINUE","note":"baseline"}
+{"stream_id":"gate_stream","step":4,"domain":"symbolic","metric":"gate","value":"WATCH","note":"symbolic anomaly"}
+{"stream_id":"gate_stream","step":5,"domain":"symbolic","metric":"gate","value":"STOP","note":"symbolic alert"}

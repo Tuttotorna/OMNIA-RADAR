@@ -5,3 +5,10 @@ __pycache__/
 *.egg-info/
 build/
 dist/
+*.py[cod]
+ci_report/
+radar_report/
+omnia_radar_report/
+omnia_radar_demo_report/
+omnia_radar_gate_report/
+report/
