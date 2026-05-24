@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "omnia-radar"
-version = "1.0.0"
+version = "1.0.1"
 description = "Structural detection, drift surfacing, and signal persistence scan layer for OMNIA."
 readme = "README.md"
 requires-python = ">=3.9"
