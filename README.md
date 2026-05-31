@@ -5,6 +5,23 @@
 <!-- OMNIA_RADAR_AUDITOR_TOP_START -->
 
 
+
+## Foundational Principle
+
+OMNIA-RADAR applies the L.O.N. Multi-Form Invariance Principle across time:
+
+> No single form is sovereign.
+
+In OMNIA-RADAR, this becomes:
+
+> No temporal observation is sovereign forever.
+
+A structure that appears stable at one time must be monitored for drift, degradation, regime change, and loss of structural compatibility across time.
+
+See:
+
+- https://github.com/Tuttotorna/lon-mirror/tree/main/foundation
+
 ## Concrete entrypoint: OMNIA Radar Auditor
 
 This repository now has a direct operational tool:
