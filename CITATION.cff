@@ -1,29 +1,11 @@
 cff-version: 1.2.0
-message: "If you use OMNIA-RADAR or OMNIA Radar Auditor, please cite this archived release."
-title: "OMNIA-RADAR: Signal, Drift, Anomaly, and Alert Auditing Across Observation Streams"
-version: "1.0.1"
-date-released: "2026-05-24"
-doi: "10.5281/zenodo.20369230"
-identifiers:
-  - type: doi
-    value: "10.5281/zenodo.20369230"
+message: "If you use this software, please cite it using the metadata from this file."
+title: "OMNIA-RADAR: OMNIA Structural Observability Repository"
 authors:
   - family-names: "Brighindi"
     given-names: "Massimiliano"
-repository-code: "https://github.com/Tuttotorna/OMNIA-RADAR"
+    affiliation: "Independent researcher"
+version: "v1.0.1"
+date-released: 2026-06-13
 url: "https://github.com/Tuttotorna/OMNIA-RADAR"
-license: "MIT"
-abstract: "OMNIA-RADAR provides a standalone OMNIA Radar Auditor for measuring signal, drift, anomaly, and alert states across supplied observation streams. The tool reads JSONL stream, step, and value observations; builds baseline windows; computes baseline deviation, shock score, and radar score; classifies events as signal, drift, anomaly, or alert; and emits reproducible JSON, CSV, HTML, JSONL, and certificate outputs. It is a measurement tool only: radar alert means structural deviation inside supplied streams, not semantic danger or future prediction."
-keywords:
-  - "OMNIA-RADAR"
-  - "structural monitoring"
-  - "signal detection"
-  - "drift detection"
-  - "anomaly detection"
-  - "alert detection"
-  - "observation streams"
-  - "structural measurement"
-  - "OMNIA"
-  - "MB-X.01"
-  - "Logical Origin Node"
-  - "open source"
+type: software

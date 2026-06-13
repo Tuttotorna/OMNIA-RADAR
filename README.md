@@ -453,3 +453,31 @@ Role document:
 
 - [Structural Observability Role](docs/STRUCTURAL_OBSERVABILITY_ROLE.md)
 <!-- STRUCTURAL_OBSERVABILITY_ROLE_END -->
+
+<!-- OMNIA_ZENODO_CITATION_BLOCK_START -->
+
+## Citation and archival
+
+This repository is prepared for GitHub-Zenodo archival.
+
+Repository:
+https://github.com/Tuttotorna/OMNIA-RADAR
+
+Latest GitHub release: v1.0.1 (https://github.com/Tuttotorna/OMNIA-RADAR/releases/tag/v1.0.1)
+
+Detected Zenodo DOI(s):
+- https://doi.org/10.5281/zenodo.20369230
+- https://doi.org/10.5281/zenodo.20322686
+- https://doi.org/10.5281/zenodo.19829096
+- https://doi.org/10.5281/zenodo.20379374
+
+Metadata files used for archival/citation:
+
+- .zenodo.json
+- CITATION.cff
+
+Zenodo note:
+
+GitHub-Zenodo archiving works after the repository is enabled in Zenodo GitHub settings and a GitHub release is created.
+
+<!-- OMNIA_ZENODO_CITATION_BLOCK_END -->

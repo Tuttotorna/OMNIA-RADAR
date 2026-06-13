@@ -1,0 +1,28 @@
+{
+  "title": "OMNIA-RADAR: OMNIA Structural Observability Repository",
+  "upload_type": "software",
+  "description": "OMNIA-RADAR is part of the OMNIA ecosystem for structural observability, stability, fragility, and evaluation under transformation.",
+  "creators": [
+    {
+      "name": "Brighindi, Massimiliano",
+      "affiliation": "Independent researcher"
+    }
+  ],
+  "keywords": [
+    "OMNIA",
+    "structural observability",
+    "stability",
+    "fragility",
+    "transformations"
+  ],
+  "language": "eng",
+  "access_right": "open",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/Tuttotorna/OMNIA-RADAR",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ],
+  "license": "MIT"
+}
