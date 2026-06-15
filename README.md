@@ -1,5 +1,19 @@
 # OMNIA-RADAR
 
+<!-- TOTALITY_FIELD_ALIGNMENT_START -->
+## Totality Field Alignment
+
+This repository is not an independent fragment.
+
+It is a local operational appearance of the same total field formalized in [LAW OF TOTALITY](https://github.com/Tuttotorna/LAW-OF-TOTALITY).
+
+Public threshold release: [v0.1.2](https://github.com/Tuttotorna/LAW-OF-TOTALITY/releases/tag/v0.1.2)
+
+DOI: [10.5281/zenodo.20700914](https://doi.org/10.5281/zenodo.20700914)
+
+See: [TOTALITY-FIELD.md](TOTALITY-FIELD.md)
+<!-- TOTALITY_FIELD_ALIGNMENT_END -->
+
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20369230.svg)](https://doi.org/10.5281/zenodo.20369230)
 
 <!-- OMNIA_RADAR_AUDITOR_TOP_START -->
